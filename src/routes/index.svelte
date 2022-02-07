@@ -1,4 +1,5 @@
 <script>
+<<<<<<< HEAD
   import {groceries} from '../stores/groceries';
   import { v4 as uuidv4 } from 'uuid';
   const uid = uuidv4();
@@ -49,4 +50,25 @@
     <button class="appearance-none bg-green-600 text-white font-semibold focus:bg-green-500 py-2 px-6">Save</button>
   </div>
   {/if}
+=======
+  import { groceries } from '../stores.js';
+  import List from '../components/list.svelte';
+  import Input from '../components/input.svelte';
+  import Button from '../components/button.svelte';
+  let currentText = "", placeholder = "Enter a grocery";
+  
+</script>
+
+<div class="flex items-center justify-center my-4 space-x-2" >
+  <Input text={currentText} placeholderText={placeholder} />
+  <Button>Add</Button>
+</div>
+
+<div class="border rounded-lg p-4 my-4"> 
+  <div class="flex items-center justify-between" >
+    <h3>Items</h3>
+    <h3>Status</h3>
+  </div>  
+  <List list={$groceries} />
+>>>>>>> 852ef85 (adding svelte components)
 </div>
