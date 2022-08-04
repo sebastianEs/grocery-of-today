@@ -11,7 +11,7 @@ function setSegment(){
 }
 </script>
 
-<li on:click={setSegment} >
+<li class="text-white font-sans font-bold" on:click={setSegment} >
   <a href={segment}>
     <slot></slot>
   </a>

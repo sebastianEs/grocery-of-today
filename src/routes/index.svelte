@@ -56,12 +56,19 @@
   import Input from '../components/input.svelte';
   import Button from '../components/button.svelte';
   let currentText = "", placeholder = "Enter a grocery";
-  
+  $: updatedText = currentText
+  const handleAddItem = (e) => {
+    $groceries = [...$groceries, {
+			id: Math.random(),
+      value: e.detail.text,
+      completed: false
+		}];
+  }
 </script>
 
 <div class="flex items-center justify-center my-4 space-x-2" >
-  <Input text={currentText} placeholderText={placeholder} />
-  <Button>Add</Button>
+  <Input bind:textValue={updatedText} placeholderText={placeholder} />
+  <Button bind:textValue={updatedText} on:addItem={handleAddItem} >Add</Button>
 </div>
 
 <div class="border rounded-lg p-4 my-4"> 
